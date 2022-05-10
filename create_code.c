@@ -2,6 +2,7 @@
 
 int main()
 {
+    wait_for_light(0);
     shut_down_in(120);
     enable_servos();
     create_connect();
@@ -15,23 +16,23 @@ int main()
     ao();
     set_servo_position(0,170); // open claw
     create_drive_direct(-150,-150);
-    msleep(1000);
+    msleep(500);
     create_drive_direct(-200,200);//turn and back up create
         msleep(700);
     create_drive_direct(-200,-200);
-    msleep(2300);
+    msleep(1300);
     create_drive_direct(200,-200);
     msleep(700);
     create_stop();
     mav(1,1500);// extend arm #1
-    msleep(5200);
+    msleep(5100);
     ao();
     set_servo_position(0,790); // close claw
     create_drive_direct(150,-150);// turn
-    msleep(500);
+    msleep(30000);
     create_stop();
     create_drive_direct(250,-250);
-    
     create_disconnect();
+   
     return 0;
 }
